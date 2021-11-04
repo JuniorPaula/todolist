@@ -1,0 +1,40 @@
+.main {
+  background-color: #61dafa;
+  padding: 30px;
+  margin: 50px auto;
+  max-width: 640px;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+}
+
+.main h1 {
+  color: #282c34;
+  text-align: center;
+}
+
+.form {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form input[type="text"] {
+  height: 40px;
+  padding: 0 20px;
+  font-size: 18px;
+  border: 1px solid #888;
+  min-width: 70%;
+
+}
+
+.form button[type="submit"] {
+  border: none;
+  height: 40px;
+  width: 40px;
+  background-color: royalblue;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

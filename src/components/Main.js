@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 
+// form
+import { FaPlus } from 'react-icons/fa';
+
+import './Main.css';
+
 /** componentes com estado - exportam uma class */
 export default class Main extends Component {
   /** método responsável por mudar o estado */
@@ -22,9 +27,15 @@ export default class Main extends Component {
       <div className="main">
         <h1>Lista de tarefas</h1>
 
-        <form action="#">
-          <input onChange={this.handleChange} type="text" />
-          <button type="submit">Enviar</button>
+        <form action="#" className="form">
+          <input
+            onChange={this.handleChange}
+            type="text"
+            value={newTask}
+          />
+          <button type="submit">
+            <FaPlus />
+          </button>
         </form>
       </div>
     );
