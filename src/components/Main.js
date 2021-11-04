@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 // form
 import { FaPlus } from 'react-icons/fa';
 
+// tasks
+import { FaEdit, FaWindowClose } from 'react-icons/fa';
+
 import './Main.css';
 
 /** componentes com estado - exportam uma class */
@@ -10,6 +13,12 @@ export default class Main extends Component {
   /** método responsável por mudar o estado */
   state = {
     newTask: '',
+    tasks: [
+      'beber água',
+      'ir no mercado',
+      'lavar o carro',
+      'estudar nodeJS',
+    ],
   }
 
   /** método responsável por capturar a mudaça no input */
@@ -21,7 +30,7 @@ export default class Main extends Component {
 
   /** método responsável por renderizar o jsx */
   render() {
-    const { newTask } = this.state;
+    const { newTask, tasks } = this.state;
 
     return (
       <div className="main">
@@ -37,6 +46,19 @@ export default class Main extends Component {
             <FaPlus />
           </button>
         </form>
+
+        <ul className="tasks">
+          {tasks.map((task) => (
+            <li key={task}>
+              {task}
+              <div>
+                <FaEdit className="edit" title="editar" />
+                <FaWindowClose className="delete" title="excluir" />
+              </div>
+            </li>
+
+          ))}
+        </ul>
       </div>
     );
   }
