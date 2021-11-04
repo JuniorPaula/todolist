@@ -17,6 +17,20 @@ export default class Main extends Component {
     index: -1,
   }
 
+  componentDidMount() {
+    const tasks = JSON.parse(localStorage.getItem('tasks'));
+    if (!tasks) return;
+    this.setState({ tasks });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const { tasks } = this.state;
+
+    if (tasks === prevState) return;
+
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }
+
   /** método responsável por submeter o formulário */
   handleSubmit = (e) => {
     e.preventDefault();
@@ -50,6 +64,7 @@ export default class Main extends Component {
     });
   }
 
+  /** método responsável por editar uma tarefa */
   handleEdit = (e, index) => {
     const { tasks } = this.state;
 
@@ -59,6 +74,7 @@ export default class Main extends Component {
     });
   }
 
+  /** método responsável por deletar uma tarefa */
   handleDelete = (e, index) => {
     const { tasks } = this.state;
     const newtasks = [...tasks];
