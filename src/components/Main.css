@@ -71,3 +71,8 @@
   font-size: 22px;
   cursor: pointer;
 }
+
+.tasks li div {
+  display: flex;
+  align-items: center;
+}

@@ -13,12 +13,23 @@ export default class Main extends Component {
   /** método responsável por mudar o estado */
   state = {
     newTask: '',
-    tasks: [
-      'beber água',
-      'ir no mercado',
-      'lavar o carro',
-      'estudar nodeJS',
-    ],
+    tasks: [],
+  }
+
+  /** método responsável por submeter o formulário */
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const { tasks } = this.state;
+    let { newTask } = this.state;
+    newTask = newTask.trim();
+
+    if (tasks.indexOf(newTask) !== -1) return;
+
+    const newTasks = [...tasks];
+
+    this.setState({
+      tasks: [...newTasks, newTask],
+    });
   }
 
   /** método responsável por capturar a mudaça no input */
@@ -36,7 +47,7 @@ export default class Main extends Component {
       <div className="main">
         <h1>Lista de tarefas</h1>
 
-        <form action="#" className="form">
+        <form action="#" onSubmit={this.handleSubmit} className="form">
           <input
             onChange={this.handleChange}
             type="text"
